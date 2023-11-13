@@ -20,6 +20,13 @@ jobs:
       uses: github/codeql-action/upload-sarif@v2
       with:
         sarif_file: results.sarif
-    - name: Xeol End-of-Life (EOL) Scan
+    - name: Create SBOM
+      uses: anchore/sbom-action@v0
+      with:
+        format: spdx-json
+        output-file: "${{ github.event.repository.name }}-sbom.spdx.json"
+    
+    - name: Scan SBOM
       uses: xeol-io/xeol-action@v1.0.7
-            
+      with:
+        sbom: "${{ github.event.repository.name }}-sbom.spdx.json"
