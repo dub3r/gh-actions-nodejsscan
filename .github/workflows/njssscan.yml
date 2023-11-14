@@ -23,5 +23,5 @@ jobs:
     - name: Create SBOM
       uses: CycloneDX/gh-node-module-generatebom@v1
       with:
-        path: '../'
+        path: './'
         output: "${{ github.event.repository.name }}-sbom.cdx.json"
