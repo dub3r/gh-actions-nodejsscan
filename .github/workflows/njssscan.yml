@@ -21,8 +21,7 @@ jobs:
       with:
         sarif_file: results.sarif
     - name: Create SBOM
-      uses: anchore/sbom-action@v0
+      uses: CycloneDX/gh-node-module-generatebom@v1
       with:
-        format: cyclonedx-json
-        output-file: "${{ github.event.repository.name }}-sbom.cdx.json"
-
+        path: '../'
+        output: "${{ github.event.repository.name }}-sbom.cdx.json"
