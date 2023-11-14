@@ -23,10 +23,6 @@ jobs:
     - name: Create SBOM
       uses: anchore/sbom-action@v0
       with:
-        format: spdx-json
-        output-file: "${{ github.event.repository.name }}-sbom.spdx.json"
-    
-    - name: Scan SBOM
-      uses: xeol-io/xeol-action@v1.0.7
-      with:
-        sbom: "${{ github.event.repository.name }}-sbom.spdx.json"
+        format: cyclonedx-json
+        output-file: "${{ github.event.repository.name }}-sbom.cdx.json"
+
