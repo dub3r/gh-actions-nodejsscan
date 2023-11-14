@@ -17,4 +17,4 @@ jobs:
           output: 'sbom.xml'
       - uses: actions/upload-artifact@v3
         with:
-          path: /sbom.xml
+          path: ./sbom.xml
